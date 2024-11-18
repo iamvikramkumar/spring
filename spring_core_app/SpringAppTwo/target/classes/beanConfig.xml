@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean class="com.ksoft.bean.Doctor" id="doc1">
+		<property name="regNo" value="556677" />
+		<property name="name" value="Nithin" />
+		<property name="specialization" value="Oncology" />
+	</bean>
+
+	<bean class="com.ksoft.bean.Patient" id="p1">
+		<property name="rxNo" value="100" />
+		<property name="name" value="abc" />
+		<property name="issue" value="fever" />
+	</bean>
+
+	<bean class="com.ksoft.bean.Patient" id="p2">
+		<property name="rxNo" value="200" />
+		<property name="name" value="bbc" />
+		<property name="issue" value="head-ache" />
+	</bean>
+
+	<bean class="com.ksoft.bean.Patient" id="p3">
+		<property name="rxNo" value="300" />
+		<property name="name" value="cce" />
+		<property name="issue" value="cold" />
+	</bean>
+
+	<bean class="com.ksoft.bean.Hospital" name="hos">
+		<constructor-arg name="regNo" value="12345" />
+		<constructor-arg name="name" value="ApolloHealthCity" />
+		<constructor-arg name="bedCount" value="2500" />
+		<property name="doctor" ref="doc1" />
+		<property name="patients">
+			<list>
+				<ref bean="p1" />
+				<ref bean="p2" />
+				<ref bean="p3" />
+			</list>
+		</property>
+	</bean>
+
+	<bean class="com.ksoft.bean.Employ" id="emp" scope="prototype">
+		<property name="id" value="1001" />
+		<property name="name" value="Jayanthi" />
+		<property name="salary" value="75000.25" />
+	</bean>
+
+
+
+</beans>
